@@ -1,7 +1,7 @@
-<h1><b>web scraping project</b></h1
+<h1><b>Simple Calculator Project Overview </b></h1
 
 
-Aim:Simple Calculator Project Overview 
+Aim:
 Create a user-friendly console-based calculator that performs basic arithmetic operations: addition, subtraction, multiplication, and division.
 
 Objectives:
