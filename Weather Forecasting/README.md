@@ -1,4 +1,4 @@
-<h1><b>wWeather ForecastingSimple Calculator Project Overview </b></h1
+<h1><b>Simple Calculator Project Overview </b></h1
 
 
 Aim:
