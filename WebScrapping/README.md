@@ -1,4 +1,4 @@
-<h1>>b>web scraping project</b></h1
+<h1><b>web scraping project</b></h1
 
 A basic web scraping project typically involves extracting structured data from a simple, static website using straightforward tools and techniques. Here’s a step-by-step outline for a beginner-friendly project along with an example:
 
