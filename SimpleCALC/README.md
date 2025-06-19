@@ -1,70 +1,93 @@
 <h1><b>web scraping project</b></h1
 
-A basic web scraping project typically involves extracting structured data from a simple, static website using straightforward tools and techniques. Here’s a step-by-step outline for a beginner-friendly project along with an example:
 
-Example Project: Scraping Book Titles and Prices from a Sample Website
-Project Goal
-Extract the titles and prices of books from a website like "Books to Scrape" (a popular practice site for scraping) and save the data into a CSV file.
+Aim:Simple Calculator Project Overview 
+Create a user-friendly console-based calculator that performs basic arithmetic operations: addition, subtraction, multiplication, and division.
 
-Tools Required
-Python programming language
+Objectives:
 
-requests library to fetch web pages
+Accept two numeric inputs and an operation choice from the user.
 
-BeautifulSoup library to parse HTML
+Perform the requested arithmetic operation.
 
-csv module to save data
+Handle errors such as invalid input and division by zero.
 
-Step-by-Step Guide
-Setup Environment
-Install necessary libraries using pip:
+Allow continuous calculations until the user decides to exit.
 
-bash
-pip install requests beautifulsoup4
-Send HTTP Request
-Use requests to download the webpage content.
+Features:
 
+Text-based user interface via console.
+
+Functions for each arithmetic operation.
+
+Input validation and error handling using try-except blocks.
+
+Loop to enable multiple calculations without restarting.
+
+Sample Python Code for a Basic Calculator
 python
-import requests
-url = 'http://books.toscrape.com/catalogue/page-1.html'
-response = requests.get(url)
-html_content = response.text
-Parse HTML Content
-Use BeautifulSoup to parse the HTML and find book information.
+def add(x, y):
+    return x + y
 
-python
-from bs4 import BeautifulSoup
-soup = BeautifulSoup(html_content, 'html.parser')
-books = soup.find_all('article', class_='product_pod')
-Extract Data
-Loop through each book element and extract the title and price.
+def subtract(x, y):
+    return x - y
 
-python
-book_data = []
-for book in books:
-    title = book.h3.a['title']
-    price = book.find('p', class_='price_color').text
-    book_data.append([title, price])
-Save Data to CSV
-Write the extracted data into a CSV file.
+def multiply(x, y):
+    return x * y
 
-python
-import csv
-with open('books.csv', 'w', newline='', encoding='utf-8') as file:
-    writer = csv.writer(file)
-    writer.writerow(['Title', 'Price'])
-    writer.writerows(book_data)
-Run and Verify
-Execute the script and check the books.csv file for the scraped data.
+def divide(x, y):
+    if y == 0:
+        return "Error! Division by zero."
+    return x / y
 
-Project Extensions
-Scrape multiple pages by iterating over pagination links.
+def calculator():
+    print("Simple Calculator")
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
 
-Extract additional data like ratings or availability.
+    while True:
+        choice = input("Enter choice (1/2/3/4): ")
 
-Handle errors and exceptions for robustness.
+        if choice not in ('1', '2', '3', '4'):
+            print("Invalid choice. Please select a valid operation.")
+            continue
 
-Use pandas for more advanced data handling.
+        try:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+        except ValueError:
+            print("Invalid input. Please enter numeric values.")
+            continue
 
-Summary
-This project covers the basics of web scraping: sending requests, parsing HTML, extracting data, and storing it. It’s a practical starting point before moving to more complex scraping tasks involving dynamic content or large-scale crawling.
+        if choice == '1':
+            print(f"{num1} + {num2} = {add(num1, num2)}")
+        elif choice == '2':
+            print(f"{num1} - {num2} = {subtract(num1, num2)}")
+        elif choice == '3':
+            print(f"{num1} * {num2} = {multiply(num1, num2)}")
+        elif choice == '4':
+            result = divide(num1, num2)
+            print(f"{num1} / {num2} = {result}")
+
+        next_calc = input("Do you want to perform another calculation? (yes/no): ").lower()
+        if next_calc != 'yes':
+            print("Thank you for using the calculator.")
+            break
+
+if __name__ == "__main__":
+    calculator()
+Explanation
+The program defines functions for each operation.
+
+It uses a loop to continuously prompt the user for an operation and two numbers.
+
+Input validation ensures only valid choices and numeric inputs are accepted.
+
+Division by zero is specifically handled with an error message.
+
+The user can perform multiple calculations until they choose to exit.
+
+This project is ideal for beginners to understand basic programming concepts like functions, loops, conditionals, and error handling in a practical context
