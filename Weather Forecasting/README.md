@@ -1,6 +1,5 @@
 <h1><b> Weather Forecasting Project Overview </b></h1
 
-
 1. Project Overview
 A Weather Forecasting project typically involves fetching weather data (current conditions and forecasts) for a specified location and presenting it to the user. This can be done by:
 
